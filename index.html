@@ -46,11 +46,23 @@
             </div>
 
             <!-- Botão de Gatilho do Painel Oculto (Menu Inteligente) -->
-            <button id="drawer-toggle" class="group flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-widest text-white transition-all shadow-lg active:scale-95">
-                <span>Explorar Hub Técnico</span>
-                <div class="flex flex-col gap-1 w-5">
+            <!-- ==========================================================================
+                 ⚙️ BOTÃO DE GATILHO RESPONSIVO (TEXTO NO DESKTOP / SANDUÍCHE NO MOBILE)
+                 ========================================================================== -->
+             <button id="drawer-toggle" class="group flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all shadow-lg active:scale-95
+                 /* Configuração para Mobile (Smartphone) */
+                 w-11 h-11 rounded-full p-0
+                 /* Configuração para Desktop (Monitores) */
+                 md:w-auto md:h-auto md:px-5 md:py-3 md:rounded-full md:gap-3">
+          
+                <!-- Este texto só aparece em telas grandes (Desktop) -->
+                <span class="hidden md:inline text-xs font-bold uppercase tracking-widest">Explorar Hub Técnico</span>
+                
+                <!-- Ícone Sanduíche Automatizado (Vira um botão clean no celular) -->
+                <div class="flex flex-col gap-1 w-5 items-center justify-center md:items-end">
                     <span class="w-5 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:translate-x-0.5"></span>
-                    <span class="w-4 h-0.5 bg-white rounded-full transition-all duration-300 self-end group-hover:w-5"></span>
+                    <span class="w-4 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:w-5"></span>
+                    <span class="w-5 h-0.5 bg-white rounded-full transition-all duration-300 md:hidden"></span>
                 </div>
             </button>
             
