@@ -114,3 +114,82 @@
            });
        });
    }
+
+   document.addEventListener('DOMContentLoaded', () => {
+    const problemForm = document.getElementById('problem-form');
+    
+    if (problemForm) {
+        problemForm.addEventListener('submit', async (event) => {
+            // 1. Bloqueia o comportamento padrão de atualizar a página
+            event.preventDefault();
+            
+            // 2. Mapeamento de interface para feedback visual dinâmico
+            const submitBtn = problemForm.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('span');
+            const btnIcon = submitBtn.querySelector('i');
+            
+            const originalText = btnText.textContent;
+            const originalIconClass = btnIcon.className;
+            
+            // 3. Aplicação do Loading State (Previne cliques duplicados)
+            submitBtn.disabled = true;
+            submitBtn.className = "w-full bg-slate-800 text-slate-400 py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2.5 cursor-not-allowed mt-4 shadow-none";
+            btnText.textContent = 'Processando Diagnóstico...';
+            btnIcon.className = 'fa-solid fa-circle-notch animate-spin text-[10px]';
+            
+            // 4. Captura automatizada de todos os inputs do formulário
+            const formData = new FormData(problemForm);
+            
+            try {
+                // 5. Disparo da requisição via Fetch API para o endpoint de destino
+                const response = await fetch(problemForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // 6. Feedback Visual de Sucesso
+                    btnText.textContent = 'Análise Enviada com Sucesso!';
+                    btnIcon.className = 'fa-solid fa-check text-emerald-400 text-[10px]';
+                    submitBtn.className = "w-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2.5 mt-4 shadow-lg";
+                    
+                    // Reseta os campos do formulário para novas consultas
+                    problemForm.reset();
+                    
+                    // Fecha o drawer de forma polida após 3 segundos
+                    setTimeout(() => {
+                        if (typeof window.closeTechnicalDrawer === 'function') {
+                            window.closeTechnicalDrawer();
+                        }
+                        // Restaura o botão ao layout padrão original
+                        submitBtn.disabled = false;
+                        submitBtn.className = "w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2.5 shadow-lg shadow-blue-600/10 transition-all active:scale-98 mt-4";
+                        btnText.textContent = originalText;
+                        btnIcon.className = originalIconClass;
+                    }, 3000);
+                    
+                } else {
+                    throw new Error('Erro de resposta do servidor.');
+                }
+                
+            } catch (error) {
+                // 7. Tratamento de Exceções e Feedback de Falha
+                console.error('Falha no processamento:', error);
+                btnText.textContent = 'Erro ao enviar. Tente novamente.';
+                btnIcon.className = 'fa-solid fa-triangle-exclamation text-rose-400 text-[10px]';
+                submitBtn.className = "w-full bg-rose-950/50 border border-rose-500/30 text-rose-400 py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2.5 mt-4 shadow-lg";
+                
+                // Reativa o botão para nova tentativa após 4 segundos
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.className = "w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2.5 shadow-lg shadow-blue-600/10 transition-all active:scale-98 mt-4";
+                    btnText.textContent = originalText;
+                    btnIcon.className = originalIconClass;
+                }, 4000);
+            }
+        });
+    }
+});
