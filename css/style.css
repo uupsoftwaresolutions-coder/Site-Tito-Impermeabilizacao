@@ -1,17 +1,14 @@
 /* ==========================================================================
-   🎨 DESIGN SYSTEM EDITORIAL HIGH-CONTRAST (DEEP BLACK & GLOW BLUE)
+   🎨 COMPONENTES ESTÉTICOS AVANÇADOS - ESTILO CINE-MINIMALISTA
    ========================================================================== */
 
-/* Configuração de Fontes e Escopo */
+   font-display {
+    font-family: 'Space Grotesk', sans-serif;
+}
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.font-display {
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-/* Esconder barra de rolagem horizontal nativa mantendo a funcionalidade de scroll */
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
@@ -20,64 +17,44 @@ body {
     scrollbar-width: none;
 }
 
-/* Sombra volumétrica de profundidade tátil */
-.shadow-3xl {
-    box-shadow: 0 30px 60px -15px rgba(92, 35, 215, 0.6),
-                0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-.shadow-card {
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
-}
-
-/* Animação Contínua de Vibração Mecânica + Pulso de Relevo (WhatsApp) */
-@keyframes mechanical-vibe {
-    0%, 100% { transform: scale(1) translateY(0); box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4); }
-    40% { transform: scale(1.08) translateY(-6px) rotate(3deg); box-shadow: 0 24px 40px rgba(16, 185, 129, 0.6); }
-    45% { transform: scale(1.08) translateY(-6px) rotate(-3deg); }
-    50% { transform: scale(1.08) translateY(-6px) rotate(2deg); }
-    55% { transform: scale(1.08) translateY(-6px) rotate(-2deg); }
-    60% { transform: scale(1.08) translateY(-6px) rotate(0deg); }
-}
-
-.pulse-btn {
-    animation: mechanical-vibe 3s infinite cubic-bezier(0.25, 1, 0.5, 1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.pulse-btn:hover {
-    transform: scale(1.15) translateY(-8px);
-    background: linear-gradient(to right, #10b981, #059669);
-}
-
-/* Pulso de luz para indicar atividade operacional online */
-@keyframes glow-pulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 6px #10b981); }
-}
-.shadow-pulse {
-    animation: glow-pulse 2s infinite ease-in-out;
-}
-
-/* Transição de Fade-In Orgânico no Carregamento */
-@keyframes scaleInPage {
-    from { opacity: 0; transform: scale(0.99) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .animate-fade-in {
-    animation: scaleInPage 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Fallback Gráfico Elegante (Caso falte a imagem local do cliente) */
-.onerror-fallback {
-    background: #111827;
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z'/%3E%3C/svg%3E");
-    padding: 20px;
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+.pulse-btn {
+    animation: pulseGlow 2s infinite;
 }
 
-/* Correção de profundidade para o layout fixo */
-main {
-    position: relative;
-    z-index: 10;
+@keyframes indicatorPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+.shadow-pulse {
+    animation: indicatorPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Garante que o botão do WhatsApp flutue acima da barra inferior com respiro perfeito */
+.pulse-btn {
+    bottom: 4rem !important; /* Move o botão para cima da barra de 12px de altura */
 }

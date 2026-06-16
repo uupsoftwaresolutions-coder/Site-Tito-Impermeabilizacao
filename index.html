@@ -3,273 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tito Impermeabilizações | Engenharia de Vedação Estrutural</title>
+    <title>Tito Impermeabilizações | Vedação Estrutural Premium</title>
     
+    <!-- Tailwind CSS (Estilização de Alta Performance) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Plus Jakarta Sans & Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Ícones Volumétricos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="bg-[#0b0f19] text-slate-100 antialiased min-h-screen font-sans">
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen overflow-x-hidden font-sans">
 
-    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-emerald-600/5 rounded-full blur-[150px] pointer-events-none"></div>
+    <!-- ==========================================================================
+         🎥 BACKGROUND HERO: VÍDEO OU IMAGEM EM TELA CHEIA (FULLSCREEN)
+         ========================================================================== -->
+    <div class="fixed inset-0 w-full h-full z-0 overflow-hidden select-none">
+        <!-- Overlay de Escurecimento Cinematográfico para dar Contraste aos Textos -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-slate-950/20 z-10"></div>
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+        
+        <!-- Vídeo de Fundo em Loop Otimizado (Troque o src pelo seu arquivo se preferir) -->
+        <video src="/img/obras/video2.mp4" autoplay loop muted playsinline class="w-full h-full object-cover transform scale-105 select-none pointer-events-none"></video>
+        <!-- <img src="/img/obras/imagem8.jpeg" alt="Fundo Engenharia Tito" class="w-full h-full object-cover transform scale-102 select-none pointer-events-none" /> -->
+    </div>
 
-    <header class="fixed top-0 left-0 right-0 h-20 bg-[#111827]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl z-50 flex items-center transition-all duration-300">
-        <div class="max-w-[1400px] w-full mx-auto px-4 md:px-8 flex justify-between items-center gap-4">
+    <!-- ==========================================================================
+         ⚡ BARRA SUSPENSA FIXA (TOP NAVIGATION DOCK) - CORRIGIDA COM Z-50
+         ========================================================================== -->
+    <header class="fixed top-0 left-0 right-0 h-24 z-50 flex items-center transition-all duration-500 px-4 md:px-12 bg-transparent" id="main-header">
+        <div class="max-w-[1400px] w-full mx-auto flex justify-between items-center">
             
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-gradient-to-tr from-blue-600 to-emerald-500 rounded-full flex items-center justify-center p-[2px] shadow-lg shrink-0">
-                    <div class="w-full h-full bg-[#0b0f19] rounded-full p-0.5 flex items-center justify-center overflow-hidden">
-                        <img src="/site/img/logo.jpg" alt="Logo Tito" class="w-full h-full object-cover rounded-full onerror-fallback">
+            <!-- Logo Minimalista -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-sky-400 rounded-full flex items-center justify-center p-[2px] shadow-lg shrink-0">
+                    <div class="w-full h-full bg-slate-900 rounded-full p-0.5 flex items-center justify-center overflow-hidden">
+                        <img src="/img/logo.jpg" alt="Logo Tito" class="w-full h-full object-cover rounded-full">
                     </div>
                 </div>
-                <div>
-                    <h1 class="text-xl md:text-2xl font-extrabold tracking-tight font-display bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent leading-none">
-                        TITO <span class="font-light text-slate-400">IMPERMEABILIZAÇÕES</span>
-                    </h1>
-                    <p class="text-[9px] uppercase tracking-[0.3em] text-emerald-400 font-bold mt-1 hidden sm:flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-pulse"></span> Vedação Estrutural Avançada
-                    </p>
+                <span class="text-lg font-bold font-display tracking-wider text-white drop-shadow">TITO <span class="font-light text-slate-300">IMPERMEABILIZAÇÕES</span></span>
+            </div>
+
+            <!-- Botão de Gatilho do Painel Oculto (Menu Inteligente) -->
+            <button id="drawer-toggle" class="group flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-widest text-white transition-all shadow-lg active:scale-95">
+                <span>Explorar Hub Técnico</span>
+                <div class="flex flex-col gap-1 w-5">
+                    <span class="w-5 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:translate-x-0.5"></span>
+                    <span class="w-4 h-0.5 bg-white rounded-full transition-all duration-300 self-end group-hover:w-5"></span>
                 </div>
-            </div>
-
-<!-- MENU DESKTOP (Fica escondido no Mobile) -->
-            <div class="hidden lg:flex gap-3 items-center bg-white/90 border border-sky-200/60 px-4 py-2 rounded-xl text-xs font-semibold shadow-sm">
-                <a href="https://www.instagram.com/tito.impermeabilizacoes/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sky-900 hover:text-blue-600 transition-colors">
-                    <i class="fa-brands fa-instagram text-rose-500 text-base"></i>
-                    <span>@tito.impermeabilizacoes</span>
-                </a>
-                <span class="text-sky-200">|</span>
-                <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20impermeabiliza%C3%A7%C3%A3o%20premium." target="_blank" class="flex items-center gap-2 font-mono font-bold text-blue-600 hover:text-blue-500 transition-colors">
-                    <i class="fa-solid fa-phone text-emerald-500 text-sm"></i>
-                    <span>(62) 99354-9099</span>
-                </a>
-            </div>
-
-            <!-- BOTÃO SANDUÍCHE MOBILE (Aparece apenas em telas menores) -->
-            <button id="menu-toggle" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-sky-50 text-blue-900 border border-sky-200 rounded-xl focus:outline-none active:scale-95 transition-all" aria-label="Abrir Menu">
-                <span class="w-5 h-0.5 bg-blue-900 rounded-full transition-all duration-300 origin-center" id="bar1"></span>
-                <span class="w-5 h-0.5 bg-blue-900 rounded-full transition-all duration-300" id="bar2"></span>
-                <span class="w-5 h-0.5 bg-blue-900 rounded-full transition-all duration-300 origin-center" id="bar3"></span>
             </button>
             
         </div>
     </header>
 
-    <!-- MENU DROPDOWN MOBILE (Oculto por padrão, controlado via JS) -->
-    <div id="mobile-menu" class="fixed top-20 left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-sky-200/80 shadow-xl z-40 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 lg:hidden">
-        <div class="p-6 flex flex-col gap-4">
-            <a href="https://www.instagram.com/tito.impermeabilizacoes/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 bg-sky-50 rounded-2xl border border-sky-100 text-sm font-bold text-sky-900 active:bg-sky-100 transition-all">
-                <span class="flex items-center gap-3">
-                    <i class="fa-brands fa-instagram text-rose-500 text-xl"></i> Instagram Oficial
-                </span>
-                <i class="fa-solid fa-chevron-right text-xs text-sky-400"></i>
-            </a>
-            <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20impermeabiliza%C3%A7%C3%A3o%20premium." target="_blank" class="flex items-center justify-between p-4 bg-emerald-50 rounded-2xl border border-emerald-100 text-sm font-bold text-emerald-800 active:bg-emerald-100 transition-all">
-                <span class="flex items-center gap-3">
-                    <i class="fa-solid fa-phone text-emerald-600 text-lg"></i> Ligar: (62) 99354-9099
-                </span>
-                <i class="fa-solid fa-chevron-right text-xs text-emerald-400"></i>
-            </a>
+    <!-- ==========================================================================
+         💎 CONTEÚDO PRINCIPAL (TEXTOS DE DESTAQUE ALINHADOS À ESQUERDA)
+         ========================================================================== -->
+    <main class="relative z-20 min-h-screen max-w-[1400px] mx-auto px-4 md:px-12 flex items-center pt-24">
+        <div class="max-w-2xl text-left space-y-6 md:space-y-8 animate-fade-in">
+
+            <h2 class="text-4xl md:text-6xl font-extrabold font-display text-white tracking-tight leading-[1.1] drop-shadow-md">
+                 O detalhe importante que blinda sua estrutura <br class="hidden md:inline"><span class="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">contra a ação do tempo.</span>
+            </h2>
+            
+            <p class="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-xl drop-shadow">
+                Mapeamento hidrodinâmico e aplicação molecular de barreiras hidrofóbicas. Protegemos fundações, lajes expostas e reservatórios com tecnologia polimérica homologada.
+            </p>
+
+            <!-- CTA Central que aciona o Painel de Triagem -->
+            <div class="pt--1">
+                <button onclick="window.openTechnicalDrawer()" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 border border-blue-400/20 active:scale-95 flex items-center gap-3">
+                    <span>Iniciar Diagnóstico Estrutural</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         🔮 HUB TÉCNICO OCULTO (SLIDE-OVER DRAWER COMPLETO) - GAIN DE RELEVO Z-50
+         ========================================================================== -->
+    <div id="technical-drawer" class="fixed inset-y-0 right-0 w-full sm:w-[550px] md:w-[650px] bg-slate-900/95 backdrop-blur-2xl border-l border-white/5 z-50 transform translate-x-full opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto shadow-2xl flex flex-col justify-between hide-scrollbar">
+        
+        <!-- Cabeçalho Interno do Menu -->
+        <div class="p-6 md:p-8 border-b border-white/5 flex justify-between items-center bg-slate-950/50 sticky top-0 z-10 backdrop-blur-md">
+            <div>
+                <h3 class="text-lg font-bold font-display text-white">Hub Operacional Tito</h3>
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Soluções & Diagnósticos</p>
+            </div>
+            <button id="drawer-close" class="w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all active:scale-95">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Conteúdo Rolável Interno -->
+        <div class="p-6 md:p-8 space-y-12 flex-1">
+            
+            <!-- 🧱 SEÇÃO A: ALGUNS DE NOSSOS TRABALHOS -->
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-sky-400">Cases de Sucesso</h4>
+                    <span class="text-[10px] text-slate-500 font-mono">Portfólio Ativo</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <img src="./img/obras/imagem1.webp" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">PROJETO #1</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Impermeabilização de Laje Exposta</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Tratamento térmico e aplicação de barreira polimérica elastomérica em área residencial com goteiras ativas.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <img src="/img/obras/imagem2.webp" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">PROJETO #1</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Impermeabilização de Laje Exposta</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Tratamento térmico e aplicação de barreira polimérica elastomérica em área residencial com goteiras ativas.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <img src="/img/obras/imagem5.jpeg" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">PROJETO #1</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Impermeabilização de Laje Exposta</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Tratamento térmico e aplicação de barreira polimérica elastomérica em área residencial com goteiras ativas.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <img src="/img/obras/imagem3.webp" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">PROJETO #1</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Impermeabilização de Laje Exposta</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Tratamento térmico e aplicação de barreira polimérica elastomérica em área residencial com goteiras ativas.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <video src="/img/obras/video1.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-80" onerror="this.parentNode.innerHTML='<img src=https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=600 class=\"w-full h-full object-cover\">'"></video>
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">EM VÍDEO</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white">Blindagem Química de Piscina em Alvenaria</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Estrutura tratada internamente contra pressão hidrostática positiva e negativa antes do revestimento.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <img src="/img/obras/imagem7.jpeg" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">PROJETO #1</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Impermeabilização de Laje Exposta</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Tratamento térmico e aplicação de barreira polimérica elastomérica em área residencial com goteiras ativas.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-slate-950/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl transition-all hover:border-blue-500/20">
+                        <div class="aspect-video w-full bg-slate-900 relative overflow-hidden">
+                            <img src="/img/obras/imagem4.webp" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-slate-300 text-[9px] font-mono px-2.5 py-1 rounded-md border border-white/5">PROJETO #1</div>
+                        </div>
+                        <div class="p-5">
+                            <h5 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Impermeabilização de Laje Exposta</h5>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed font-light">Tratamento térmico e aplicação de barreira polimérica elastomérica em área residencial com goteiras ativas.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 🧱 SEÇÃO B: VANTAGENS E DICAS TÉCNICAS -->
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-sky-400">Manual Técnico & Vantagens</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-950/40 border border-white/5 rounded-xl">
+                        <div class="text-blue-400 text-sm mb-2"><i class="fa-solid fa-droplet-slash"></i></div>
+                        <h5 class="text-xs font-bold text-slate-200">Preservação Estrutural</h5>
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">Evita que a umidade alcance a armadura de ferro do concreto, impedindo a oxidação.</p>
+                    </div>
+                    <div class="p-4 bg-slate-950/40 border border-white/5 rounded-xl">
+                        <div class="text-emerald-400 text-sm mb-2"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <h5 class="text-xs font-bold text-slate-200">Saúde & Higiene</h5>
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">Bloquear infiltrações elimina focos de mofo e fungos que causam crises respiratórias.</p>
+                    </div>
+                </div>
+
+                <div class="p-5 bg-blue-950/20 border border-blue-500/10 rounded-2xl flex gap-4 items-start">
+                    <i class="fa-solid fa-lightbulb text-amber-400 text-sm mt-0.5"></i>
+                    <div>
+                        <h5 class="text-xs font-bold text-blue-300">Dica do Tito: Não espere o reboco cair</h5>
+                        <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">Manchas escuras no rodapé ou bolhas na pintura são sinais de umidade ascendente. Tratar a infiltração logo no início custa até 75% menos do que refazer tudo depois.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🧱 SEÇÃO C: FORMULÁRIO DE TRIAGEM DIRETO PRO E-MAIL -->
+            <div class="space-y-4 pt-4">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-sky-400">Solicitar Vistoria Avançada</h4>
+                <form id="problem-form" action="https://formsubmit.co/SEU_EMAIL_AQUI@GMAIL.COM" method="POST" class="space-y-4">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="🚨 Novo Lead Premium - Tito Impermeabilizações">
+
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">Qual o setor crítico?</label>
+                        <select id="select-problem" name="Setor_Critico" required class="w-full bg-slate-950 border border-white/5 rounded-xl p-3.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500 transition-all cursor-pointer">
+                            <option value="Orçamento de Imperablização de gabarito">Baldrames, Vigas, etc.</option>
+                            <option value="">Selecione a área afetada...</option>
+                            <option value="Laje Exposta">Vazamento / Infiltração em Laje</option>
+                            <option value="Piscina ou Reservatório">Vazamento em Piscina / Caixa d'Água</option>
+                            <option value="Parede / Rodapé com Mofo">Umidade em Parede ou Rodapés</option>
+                            <option value="Subsolo / Garagem">Infiltração em Subsolo ou Poço de Elevador</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">Descreva os sintomas observados</label>
+                        <textarea id="text-details" name="Sintomas_Detalhes" required rows="3" placeholder="Ex: Goteiras ao chover..." class="w-full bg-slate-950 border border-white/5 rounded-xl p-3.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500 transition-all resize-none placeholder:text-slate-700"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2.5 shadow-lg active:scale-[0.99]">
+                        <span>Enviar Dados para Análise Técnica</span>
+                        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="p-6 border-t border-white/5 text-center bg-slate-950/30">
+            <span class="text-[9px] uppercase tracking-widest text-slate-500">Desenvolvido por <a href="https://uupsoftwaresolutions.vercel.app" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline font-bold">UUP Software Solutions</a></span>
         </div>
     </div>
 
-    <main class="max-w-[1400px] mx-auto p-4 md:p-8 pb-28 space-y-12 relative z-10" style="margin-top: 60px !important;">
-        
-         <!-- Mude as classes da div para estas (p-5 e rounded-[2rem] no mobile) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
-            
-            <section class="lg:col-span-5 bg-[#111827]/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] shadow-2xl flex flex-col justify-between">
-                <div>
-                    <div class="mb-8">
-                        <span class="inline-block text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] bg-blue-50 border border-blue-200/60 px-3 py-1 rounded-full max-w-full break-words">
-                            Vantagens da Impermeabilização
-                        </span>
-                        <h2 class="text-3xl font-bold font-display text-white mt-4 tracking-tight">A blindagem definitiva contra a água.</h2>
-                    </div>
-
-                    <div class="space-y-4" id="bento-benefits-container">
-                        <div class="bento-item flex gap-4 items-start p-4 rounded-2xl bg-[#111827]/60 border border-white/5 shadow-md hover:border-blue-500/30 hover:bg-[#1f2937]/40 transition-all duration-300 group">
-                            <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20 font-bold font-mono text-sm shadow-inner group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">01</div>
-                            <div>
-                                <h4 class="font-bold text-slate-100 text-sm tracking-tight group-hover:text-blue-400 transition-colors">Barreira Hidrofóbica Molecular</h4>
-                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-medium">Estanca infiltrações severas em lajes expostas através de cristalização ativa.</p>
-                            </div>
-                        </div>
-
-                        <div class="bento-item flex gap-4 items-start p-4 rounded-2xl bg-[#111827]/60 border border-white/5 shadow-md hover:border-blue-500/30 hover:bg-[#1f2937]/40 transition-all duration-300 group">
-                            <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20 font-bold font-mono text-sm shadow-inner group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">02</div>
-                            <div>
-                                <h4 class="font-bold text-slate-100 text-sm tracking-tight group-hover:text-blue-400 transition-colors">Preservação Maciça do Concreto</h4>
-                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-medium">Impede de forma absoluta que a umidade alcance e oxide as ferragens estruturais.</p>
-                            </div>
-                        </div>
-
-                        <div class="bento-item flex gap-4 items-start p-4 rounded-2xl bg-[#111827]/60 border border-white/5 shadow-md hover:border-blue-500/30 hover:bg-[#1f2937]/40 transition-all duration-300 group">
-                            <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20 font-bold font-mono text-sm shadow-inner group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">03</div>
-                            <div>
-                                <h4 class="font-bold text-slate-100 text-sm tracking-tight group-hover:text-blue-400 transition-colors">Fim Total do Mofo e Fungos</h4>
-                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-medium">Sanitiza o ambiente eliminando microrganismos causados por umidade capilar.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="lg:col-span-4 flex flex-col justify-between gap-6">
-                <div class="bg-gradient-to-b from-[#1e3a8a] to-[#0f172a] text-white p-8 rounded-[2.5rem] shadow-2xl border border-white/5 relative overflow-hidden flex-1 flex flex-col justify-center transform hover:scale-[1.01] transition-all duration-300">
-                    <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-                        <i class="fa-solid fa-shield-blank text-blue-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold leading-relaxed text-slate-100 font-display">
-                        "A tranquilidade de uma estrutura protegida contra o tempo e a ação oculta da água."
-                    </h3>
-                    <div class="w-12 h-[2px] bg-emerald-400 mt-6 rounded-full"></div>
-                </div>
-
-                <div class="bg-[#111827]/60 border border-white/5 p-6 md:p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden transform hover:scale-[1.01] transition-all duration-300">
-                    <h4 class="font-bold text-lg mb-3 flex items-center gap-3 text-white font-display">
-                        <div class="w-8 h-8 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center"><i class="fa-solid fa-crown text-amber-400 text-sm"></i></div>
-                        <span>A Qualidade é o nosso Compromisso</span>
-                    </h4>
-                    <p class="text-xs text-slate-400 font-medium leading-relaxed">
-                        Executamos mapeamento termográfico de capilaridade para aplicar a composição polimérica correta, oferecendo estanqueidade definitiva para sua obra.
-                    </p>
-                </div>
-            </section>
-
-            <section class="lg:col-span-3 h-full">
-                <div class="bg-gradient-to-b from-[#111827] to-[#0b0f19] p-6 md:p-8 rounded-[2.5rem] shadow-3xl border border-white/10 relative flex flex-col justify-between h-full group hover:border-blue-500/20 transition-all duration-500">
-                    <div>
-                        <h3 class="text-2xl font-bold font-display text-white pr-6 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400"><i class="fa-solid fa-sliders text-sm"></i></div>
-                            <span>Triagem Avançada</span>
-                        </h3>
-                        <p class="text-[11px] text-slate-400 mt-2 font-medium">Selecione o cenário crítico para gerar a diretriz de vedação.</p>
-                        <div class="w-full h-[1px] bg-white/5 my-5"></div>
-                    </div>
-
-                    <form id="problem-form" class="space-y-5 flex-1 flex flex-col justify-between">
-                        <div class="space-y-5">
-                            <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Área Crítica de Infiltração</label>
-                                <div class="relative">
-                                    <select id="select-problem" required class="w-full bg-[#0b0f19] border border-white/10 rounded-xl p-3.5 text-xs font-semibold text-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all appearance-none cursor-pointer shadow-inner">
-                                        <option value="">Selecione o setor...</option>
-                                        <option value="Infiltração na Laje">Infiltração / Vazamento na Laje</option>
-                                        <option value="Umidade na Parede">Mofo / Umidade Rodapé e Parede</option>
-                                        <option value="Vazamento na Piscina / Reservatório">Vazamento em Piscina / Caixa d'Água</option>
-                                        <option value="Problema no Subsolo / Garagem">Infiltração em Subsolo ou Garagem</option>
-                                        <option value="Outro problema">Outro Cenário Estrutural</option>
-                                    </select>
-                                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500 text-[10px]"><i class="fa-solid fa-chevron-down"></i></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Sintomas e Diagnóstico Prévio</label>
-                                <textarea id="text-details" required rows="4" placeholder="Ex: Goteiras contínuas, reboco soltando com bolhas..." class="w-full bg-[#0b0f19] border border-white/10 rounded-xl p-3.5 text-xs font-medium text-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none placeholder:text-slate-600 shadow-inner"></textarea>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-blue-500 transition-all duration-300 flex items-center justify-center gap-2.5 shadow-lg shadow-blue-600/20 border border-blue-400/20 active:scale-[0.99] mt-6">
-                            <span>Mapear via WhatsApp</span>
-                            <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-        <section class="bg-[#111827]/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] shadow-2xl overflow-hidden">
-            <div class="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                    <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.25em] bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Casos de Sucesso</span>
-                    <h3 class="text-2xl font-bold font-display text-white mt-4 tracking-tight">Portfólio Técnico Homologado</h3>
-                </div>
-                <div class="text-xs text-slate-500 font-medium flex items-center gap-2 bg-[#0b0f19] px-4 py-2 rounded-xl border border-white/5">
-                    <i class="fa-solid fa-right-left text-blue-400 animate-pulse"></i> Deslize lateralmente para explorar
-                </div>
-            </div>
-            
-            <div class="flex gap-6 overflow-x-auto pb-4 pt-2 px-1 scroll-smooth snap-x snap-mandatory hide-scrollbar" id="gallery-container">
-                
-                <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito!%20Estava%20olhando%20o%20portf%C3%B3lio%20digital%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20baseado%20na%20*Laje%20Residencial%20Selada*." target="_blank" 
-                   class="min-w-[290px] sm:min-w-[330px] max-w-[330px] snap-start group relative aspect-square rounded-[2rem] overflow-hidden bg-[#111827] border border-white/5 shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-500/40">
-                    <img src="./img/obras/imagem1.webp" alt="Laje Residencial Selada" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-[#0b0f19]/30 to-transparent flex flex-col justify-end p-6 text-white">
-                        <p class="text-base font-bold tracking-tight font-display text-white drop-shadow-md">Laje Residencial Selada</p>
-                        <span class="text-[10px] uppercase tracking-widest text-emerald-400 mt-2 font-extrabold flex items-center gap-1.5">
-                            Análise de Viabilidade <i class="fa-solid fa-arrow-right text-[9px] transition-transform group-hover:translate-x-1"></i>
-                        </span>
-                    </div>
-                    <div class="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-md text-slate-300 text-[9px] font-extrabold px-3 py-1.5 rounded-xl border border-white/5 font-mono">PROJETO #1</div>
-                </a>
-
-                <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito!%20Estava%20olhando%20o%20portf%C3%B3lio%20digital%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20baseado%20na%20*Piscina%20em%20Alvenaria%20Protegida*." target="_blank" 
-                   class="min-w-[290px] sm:min-w-[330px] max-w-[330px] snap-start group relative aspect-square rounded-[2rem] overflow-hidden bg-[#111827] border border-white/5 shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-500/40">
-                    <img src="img/obras/imagem2.webp" alt="Piscina Protegida" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-[#0b0f19]/30 to-transparent flex flex-col justify-end p-6 text-white">
-                        <p class="text-base font-bold tracking-tight font-display text-white drop-shadow-md">Piscina em Alvenaria Protegida</p>
-                        <span class="text-[10px] uppercase tracking-widest text-emerald-400 mt-2 font-extrabold flex items-center gap-1.5">
-                            Análise de Viabilidade <i class="fa-solid fa-arrow-right text-[9px] transition-transform group-hover:translate-x-1"></i>
-                        </span>
-                    </div>
-                    <div class="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-md text-slate-300 text-[9px] font-extrabold px-3 py-1.5 rounded-xl border border-white/5 font-mono">PROJETO #2</div>
-                </a>
-
-                <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito!%20Estava%20olhando%20o%20portf%C3%B3lio%20digital%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20baseado%20no%20*Tratamento%20de%20Fachada%20Externa*." target="_blank" 
-                   class="min-w-[290px] sm:min-w-[330px] max-w-[330px] snap-start group relative aspect-square rounded-[2rem] overflow-hidden bg-[#111827] border border-white/5 shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-500/40">
-                    <img src="/site/img/obras/imagem3.webp" alt="Fachada Protegida" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-[#0b0f19]/30 to-transparent flex flex-col justify-end p-6 text-white">
-                        <p class="text-base font-bold tracking-tight font-display text-white drop-shadow-md">Tratamento de Fachada Externa</p>
-                        <span class="text-[10px] uppercase tracking-widest text-emerald-400 mt-2 font-extrabold flex items-center gap-1.5">
-                            Análise de Viabilidade <i class="fa-solid fa-arrow-right text-[9px] transition-transform group-hover:translate-x-1"></i>
-                        </span>
-                    </div>
-                    <div class="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-md text-slate-300 text-[9px] font-extrabold px-3 py-1.5 rounded-xl border border-white/5 font-mono">PROJETO #3</div>
-                </a>
-
-                            <!-- CARD COM VÍDEO LOCAL DA OBRA -->
-                <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito!%20Estava%20vendo%20o%20v%C3%ADdeo%20da%20obra%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" 
-                class="min-w-[290px] sm:min-w-[330px] max-w-[330px] snap-start group relative aspect-square rounded-[2rem] overflow-hidden bg-[#111827] border border-white/5 shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-500/40">
-                
-                <!-- TAG DE VÍDEO CONFIGURADA PARA RODAR AUTOMATICAMENTE E SEM SOM (Essencial para navegadores não bloquearem) -->
-                <video src="/site/img/obras/video1.mp4" autoplay loop muted playsinline class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 opacity-75 group-hover:opacity-100"></video>
-                
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-[#0b0f19]/30 to-transparent flex flex-col justify-end p-6 text-white">
-                    <p class="text-base font-bold tracking-tight font-display text-white drop-shadow-md">Atenção total a qualidade</p>
-                    <span class="text-[10px] uppercase tracking-widest text-emerald-400 mt-2 font-extrabold flex items-center gap-1.5">
-                        Verificar Solução <i class="fa-solid fa-arrow-right text-[9px] transition-transform group-hover:translate-x-1"></i>
-                    </span>
-                </div>
-                <div class="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-md text-slate-300 text-[9px] font-extrabold px-3 py-1.5 rounded-xl border border-white/5 font-mono">
-                    <i class="fa-solid fa-play text-blue-400 mr-1 text-[8px]"></i> EM VÍDEO
-                </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="fixed bottom-0 left-0 right-0 h-16 bg-[#070a10]/90 backdrop-blur-md border-t border-white/5 shadow-3xl z-40 flex items-center">
-        <div class="max-w-[1400px] w-full mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-            <div class="text-xs font-medium text-slate-500">
-                &copy; 2026 <span class="text-slate-400 font-semibold">Tito Impermeabilizações</span>. Engenharia de Estanqueidade Rígida.
-            </div>
-            <div class="text-[9px] tracking-[0.3em] uppercase font-bold text-slate-500">
-                Orquestrado com Autonomia por <a href="https://uup-site.vercel.app//" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-500 transition-colors font-extrabold hover:underline">UUP SOFTWARE SOLUTIONS</a>
-            </div>
-        </div>
-    </footer>
-
-    <a id="whatsapp-floating-link" href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito%2C%20vi%20o%20seu%20novo%20portf%C3%B3lio%20digital%20e%20gostaria%20de%20avaliar%20uma%20obra." target="_blank" class="fixed bottom-20 right-6 md:right-10 w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-full flex items-center justify-center z-50 pulse-btn shadow-3xl border border-emerald-400/20 active:scale-95" title="Falar direto no WhatsApp">
-        <i class="fa-brands fa-whatsapp text-3xl drop-shadow-[0_4px_10px_rgba(16,185,129,0.5)]"></i>
+    <!-- ==========================================================================
+         🟢 CTA FLUTUANTE DO WHATSAPP (FIXO NA TELA PRINCIPAL)
+         ========================================================================== -->
+    <a href="https://wa.me/5562993549099?text=Ol%C3%A1%20Tito%2C%20gostaria%20de%20agendar%20uma%20vistoria%20técnica%20de%20impermeabilização." target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-6 md:right-10 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-full flex items-center justify-center z-30 shadow-2xl transition-transform hover:scale-110 active:scale-95 pulse-btn" title="Falar direto no WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl md:text-3xl drop-shadow-[0_2px_8px_rgba(16,185,129,0.4)]"></i>
     </a>
 
-    <script src="./script.js"></script>
+    <script src="/js/script.js"></script>
+
+ <!-- ==========================================================================
+         🔒 BARRA DE CRÉDITOS E SOCIAL (BARRA ULTRA ESTREITA - H-8)
+         ========================================================================== -->
+         <div class="fixed bottom-0 left-0 right-0 h-8 bg-slate-950/50 backdrop-blur-md border-t border-white/5 z-40 flex items-center px-4 md:px-12 select-none">
+            <div class="max-w-[1400px] w-full mx-auto flex justify-between items-center text-[9px] md:text-[10px] font-medium tracking-wide">
+                
+                <!-- Lado Esquerdo: Instagram da Tito Impermeabilizações -->
+                <a href="https://www.instagram.com/tito.impermeabilizacoes/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-slate-400 hover:text-rose-400 transition-colors group">
+                    <i class="fa-brands fa-instagram text-slate-500 group-hover:text-rose-500 transition-colors text-xs"></i>
+                    <span class="hidden sm:inline">@tito.impermeabilizacoes</span>
+                    <span class="sm:hidden">Instagram</span>
+                </a>
+    
+                <!-- Lado Direito: Dados da UUP Software Solutions Clicável -->
+                <div class="text-slate-500 uppercase tracking-[0.15em] text-[8px] md:text-[9px]">
+                    Orquestrado por 
+                    <a href="https://uupsoftwaresolutions.vercel.app" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-400 font-extrabold transition-colors hover:underline">
+                        UUP SOFTWARE SOLUTIONS
+                    </a>
+                </div>
+                
+            </div>
+        </div>
 </body>
 </html>
