@@ -49,23 +49,30 @@
             <!-- ==========================================================================
                  ⚙️ BOTÃO DE GATILHO RESPONSIVO (TEXTO NO DESKTOP / SANDUÍCHE NO MOBILE)
                  ========================================================================== -->
-             <button id="drawer-toggle" class="group flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all shadow-lg active:scale-95
-                 /* Configuração para Mobile (Smartphone) */
+                 <button id="drawer-toggle" onclick="
+                // 1. Encontra o container interno do painel que faz o scroll
+                const drawerContent = document.querySelector('.overflow-y-auto');
+                if (drawerContent) { 
+                    // 2. Zera a rolagem instantaneamente para voltar ao título inicial
+                    drawerContent.scrollTop = 0; 
+                }
+                // 3. Abre a gaveta técnica na tela
+                window.openTechnicalDrawer();
+            " class="group flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all shadow-lg active:scale-95
+                 /* Configuração para Mobile */
                  w-11 h-11 rounded-full p-0
-                 /* Configuração para Desktop (Monitores) */
+                 /* Configuração para Desktop */
                  md:w-auto md:h-auto md:px-5 md:py-3 md:rounded-full md:gap-3">
           
-                <!-- Este texto só aparece em telas grandes (Desktop) -->
                 <span class="hidden md:inline text-xs font-bold uppercase tracking-widest">Explorar Hub Técnico</span>
                 
-                <!-- Ícone Sanduíche Automatizado (Vira um botão clean no celular) -->
                 <div class="flex flex-col gap-1 w-5 items-center justify-center md:items-end">
                     <span class="w-5 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:translate-x-0.5"></span>
                     <span class="w-4 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:w-5"></span>
                     <span class="w-5 h-0.5 bg-white rounded-full transition-all duration-300 md:hidden"></span>
                 </div>
             </button>
-            
+        
         </div>
     </header>
 
@@ -84,8 +91,8 @@
             </p>
 
             <!-- CTA Central que aciona o Painel de Triagem -->
-            <div class="pt--1">
-                <button onclick="window.openTechnicalDrawer()" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 border border-blue-400/20 active:scale-95 flex items-center gap-3">
+            <div class="pt-4">
+                <button onclick="window.openTechnicalDrawer(); setTimeout(() => document.querySelector('input[name=\'Nome_Cliente\']').focus(), 300)" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 border border-blue-400/20 active:scale-95 flex items-center gap-3">
                     <span>Iniciar Diagnóstico Estrutural</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                 </button>
@@ -101,7 +108,7 @@
         <!-- Cabeçalho Interno do Menu -->
         <div class="p-6 md:p-8 border-b border-white/5 flex justify-between items-center bg-slate-950/50 sticky top-0 z-10 backdrop-blur-md">
             <div>
-                <h3 class="text-lg font-bold font-display text-white">Hub Operacional Tito</h3>
+                <h3 class="text-lg font-bold font-display text-white">Hub Operacional</h3>
                 <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Soluções & Diagnósticos</p>
             </div>
             <button id="drawer-close" class="w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all active:scale-95">
@@ -316,13 +323,6 @@
          ========================================================================== -->
          <div class="fixed bottom-0 left-0 right-0 h-8 bg-slate-950/50 backdrop-blur-md border-t border-white/5 z-40 flex items-center px-4 md:px-12 select-none">
             <div class="max-w-[1400px] w-full mx-auto flex justify-between items-center text-[9px] md:text-[10px] font-medium tracking-wide">
-                
-                <!-- Lado Esquerdo: Instagram da Tito Impermeabilizações -->
-                <a href="https://www.instagram.com/tito.impermeabilizacoes/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-slate-400 hover:text-rose-400 transition-colors group">
-                    <i class="fa-brands fa-instagram text-slate-500 group-hover:text-rose-500 transition-colors text-xs"></i>
-                    <span class="hidden sm:inline">@tito.impermeabilizacoes</span>
-                    <span class="sm:hidden">Instagram</span>
-                </a>
     
                 <!-- Lado Direito: Dados da UUP Software Solutions Clicável -->
                 <div class="text-slate-500 uppercase tracking-[0.15em] text-[8px] md:text-[9px]">
@@ -331,7 +331,12 @@
                         UUP SOFTWARE SOLUTIONS
                     </a>
                 </div>
-                
+                    <!-- Lado Esquerdo: Instagram da Tito Impermeabilizações -->
+                    <a href="https://www.instagram.com/tito.impermeabilizacoes/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-slate-400 hover:text-rose-400 transition-colors group">
+                        <i class="fa-brands fa-instagram text-slate-500 group-hover:text-rose-500 transition-colors text-xs"></i>
+                        <span class="hidden sm:inline">@tito.impermeabilizacoes</span>
+                        <span class="sm:hidden">Instagram</span>
+                    </a>
             </div>
         </div>
 </body>
